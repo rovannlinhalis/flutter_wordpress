@@ -205,8 +205,12 @@ class PostsBuilderState extends State<PostsBuilder> {
         postParams: wp.ParamsPostList(perPage: 1),
         fetchAuthor: true,
         fetchFeaturedMedia: true,
-      );
+        embedded: true);
     });
+
+
+
+
     return posts;
   }
 
@@ -224,7 +228,9 @@ class PostsBuilderState extends State<PostsBuilder> {
                 String author = snapshot.data[i].author.name;
                 String content = snapshot.data[i].content.rendered;
                 wp.Media featuredMedia = snapshot.data[i].featuredMedia;
-
+                
+                print(snapshot.data[i].eEmbedded.wpFeaturedmedia.first.sourceUrl);
+                
                 return Padding(
                   padding: paddingCardsList,
                   child: GestureDetector(
