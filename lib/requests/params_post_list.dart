@@ -25,6 +25,7 @@ class ParamsPostList {
   final List<int> includeTags;
   final List<int> excludeTags;
   final bool sticky;
+  final bool embedded;
 
   ParamsPostList({
     this.context = WordPressContext.view,
@@ -47,10 +48,12 @@ class ParamsPostList {
     this.includeTags,
     this.excludeTags,
     this.sticky,
+    this.embedded = false
   });
 
   Map<String, String> toMap() {
     return {
+      '_embed': '${this.embedded ? '1' : 0}',
       'context': '${enumStringToName(this.context.toString())}',
       'page': '${this.pageNum}',
       'per_page': '${this.perPage}',

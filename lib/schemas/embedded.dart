@@ -22,18 +22,18 @@ class Embedded {
         wpFeaturedmedia.add(new WpFeaturedmedia.fromJson(v));
       });
     }
-    if (json['wp:term'] != null) {
-      wpTerm = new List<List<WpTerm>>();
-      int i = 0;
-      json['wp:term'].forEach((v) {
-        List<WpTerm> lt = new List<WpTerm>();
-        json['wp:term:' + i.toString()].forEach((vt) {
-          lt.add(new WpTerm.fromJson(vt));
-        });
-        i++;
-        wpTerm.add(lt);
-      });
-    }
+    // if (json['wp:term'] != null) {
+    //   wpTerm = new List<List<WpTerm>>();
+    //   int i = 0;
+    //   json['wp:term'].forEach((v) {
+    //     List<WpTerm> lt = new List<WpTerm>();
+    //     json['wp:term:' + i.toString()].forEach((vt) {
+    //       lt.add(new WpTerm.fromJson(vt));
+    //     });
+    //     i++;
+    //     wpTerm.add(lt);
+    //   });
+    // }
   }
 
   Map<String, dynamic> toJson() {

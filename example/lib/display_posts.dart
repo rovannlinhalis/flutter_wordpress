@@ -202,10 +202,9 @@ class PostsBuilderState extends State<PostsBuilder> {
   Future<void> fetchPosts() {
     setState(() {
       posts = widget.wordPress.fetchPosts(
-        postParams: wp.ParamsPostList(perPage: 1),
+        postParams: wp.ParamsPostList(perPage: 1, embedded: true),
         fetchAuthor: true,
-        fetchFeaturedMedia: true,
-        embedded: true);
+        fetchFeaturedMedia: true,);
     });
 
 

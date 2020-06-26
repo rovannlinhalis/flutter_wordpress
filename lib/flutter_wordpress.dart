@@ -255,10 +255,10 @@ class WordPress {
     bool fetchTags = false,
     bool fetchFeaturedMedia = false,
     bool fetchAttachments = false,
-    bool embedded = true,
     String postType = "posts",
+
   }) async {
-    final StringBuffer url = new StringBuffer(_baseUrl + URL_WP_BASE + "/" + postType + (embedded ? "?_embed" : ""));
+    final StringBuffer url = new StringBuffer(_baseUrl + URL_WP_BASE + "/" + postType);
 
     url.write(postParams.toString());
 
