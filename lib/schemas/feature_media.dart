@@ -1,7 +1,8 @@
 import 'links.dart';
 import 'guid.dart';
+import 'media.dart';
 
-class WpFeaturedmedia {
+class WpFeaturedmediaEmbedded {
 	int id;
 	String date;
 	String slug;
@@ -17,9 +18,9 @@ class WpFeaturedmedia {
 	String sourceUrl;
 	Links lLinks;
 
-	WpFeaturedmedia({this.id, this.date, this.slug, this.type, this.link, this.title, this.author, this.caption, this.altText, this.mediaType, this.mimeType, this.mediaDetails, this.sourceUrl, this.lLinks});
+	WpFeaturedmediaEmbedded({this.id, this.date, this.slug, this.type, this.link, this.title, this.author, this.caption, this.altText, this.mediaType, this.mimeType, this.mediaDetails, this.sourceUrl, this.lLinks});
 
-	WpFeaturedmedia.fromJson(Map<String, dynamic> json) {
+	WpFeaturedmediaEmbedded.fromJson(Map<String, dynamic> json) {
 		id = json['id'];
 		date = json['date'];
 		slug = json['slug'];
@@ -64,25 +65,3 @@ class WpFeaturedmedia {
 	}
 }
 
-class MediaDetails {
-	int width;
-	int height;
-	String file;
-
-
-	MediaDetails({this.width, this.height, this.file});
-
-	MediaDetails.fromJson(Map<String, dynamic> json) {
-		width = json['width'];
-		height = json['height'];
-		file = json['file'];
-	}
-
-	Map<String, dynamic> toJson() {
-		final Map<String, dynamic> data = new Map<String, dynamic>();
-		data['width'] = this.width;
-		data['height'] = this.height;
-		data['file'] = this.file;
-		return data;
-	}
-}

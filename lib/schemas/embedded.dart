@@ -4,8 +4,8 @@ import 'term.dart';
 
 class Embedded {
   List<Author> author;
-  List<WpFeaturedmedia> wpFeaturedmedia;
-  List<List<WpTerm>> wpTerm;
+  List<WpFeaturedmediaEmbedded> wpFeaturedmedia;
+  List<WpTermList> wpTerm;
 
   Embedded({this.author, this.wpFeaturedmedia, this.wpTerm});
 
@@ -17,21 +17,16 @@ class Embedded {
       });
     }
     if (json['wp:featuredmedia'] != null) {
-      wpFeaturedmedia = new List<WpFeaturedmedia>();
+      wpFeaturedmedia = new List<WpFeaturedmediaEmbedded>();
       json['wp:featuredmedia'].forEach((v) {
-        wpFeaturedmedia.add(new WpFeaturedmedia.fromJson(v));
+        wpFeaturedmedia.add(new WpFeaturedmediaEmbedded.fromJson(v));
       });
     }
     // if (json['wp:term'] != null) {
-    //   wpTerm = new List<List<WpTerm>>();
-    //   int i = 0;
+    //   wpTerm = new List<WpTermList>();
     //   json['wp:term'].forEach((v) {
     //     List<WpTerm> lt = new List<WpTerm>();
-    //     json['wp:term:' + i.toString()].forEach((vt) {
-    //       lt.add(new WpTerm.fromJson(vt));
-    //     });
-    //     i++;
-    //     wpTerm.add(lt);
+    //     lt.add(new WpTerm.fromJson(v));
     //   });
     // }
   }
@@ -46,7 +41,7 @@ class Embedded {
           this.wpFeaturedmedia.map((v) => v.toJson()).toList();
     }
     if (this.wpTerm != null) {
-      data['wp:term'] = this.wpTerm.map((v) => v.map((e) => e.toJson())).toList();
+      data['wp:term'] = this.wpTerm.map((v) => v.toJson()).toList();
     }
     return data;
   }

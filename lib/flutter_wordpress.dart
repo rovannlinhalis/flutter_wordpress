@@ -36,6 +36,7 @@ import 'schemas/post.dart';
 import 'schemas/tag.dart';
 import 'schemas/user.dart';
 import 'schemas/wordpress_error.dart';
+import 'schemas/feature_media.dart';
 
 export 'constants.dart';
 export 'requests/params_category_list.dart';
@@ -64,6 +65,8 @@ export 'schemas/tag.dart';
 export 'schemas/title.dart';
 export 'schemas/user.dart';
 export 'schemas/wordpress_error.dart';
+export 'schemas/feature_media.dart';
+
 
 /// All WordPress related functionality are defined under this class.
 class WordPress {

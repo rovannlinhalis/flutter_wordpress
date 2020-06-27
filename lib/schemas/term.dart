@@ -19,3 +19,30 @@ class WpTerm {
 		return data;
 	}
 }
+
+class WpTermList
+{
+  List<WpTerm> terms;
+  WpTermList({this.terms});
+
+
+  WpTermList.fromJson(Map<String,dynamic>json)
+  {
+     if (json?.values != null) {
+      terms = new List<WpTerm>();
+      json.values.forEach((v) {
+        terms.add(new WpTerm.fromJson(v));
+      });
+    }
+  }
+
+
+  Map<String, dynamic> toJson() {
+		final Map<String, dynamic> data = new Map<String, dynamic>();
+	  if (this.terms != null) {
+      //data[''] = this.terms.map((v) => v.toJson());
+    }
+		return data;
+	}
+
+}
